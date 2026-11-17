@@ -9,3 +9,11 @@
 - لا تخترع أسعاراً ولا كميات. اذكر المصدر والافتراضات دائماً.
 - بيانات المتابعة اليومية (الحضور، المشاكل، المواد، العدد، المهام) موجودة في صفحة
   "متابعة المشروع" على claude.ai. اقرأها بأداة ArtifactData عندما يطلب المستخدم تقريراً.
+
+## المهارات والأدوات المثبتة
+- `electrical-project-planner`: التخطيط والتسعير والعمالة والعدد والمتابعة.
+- PowerSkills (رخصة MIT، من Power-Agent/PowerSkills): `power-pandapower`، `power-opendss`،
+  `power-psse` (يحتاج PSS/E على Windows)، وأدلة معالجة: الجهد، التحميل الحراري، تيار القصر،
+  استضافة الطاقة الشمسية (DER)، فشل التقارب، الطوارئ N-1.
+- مكتبات Python: pandapower، python-control، opendssdirect.py، ezdxf (ملفات DXF)، openpyxl، pdfplumber.
+- ngspice لمحاكاة الدوائر.
