@@ -1,0 +1,12 @@
+code,description,qty,phase,factor
+CND-PVC-20,PVC conduit 20mm in slabs and walls,4200,Rough-in,1.0
+TRY-300,Cable tray 300mm,350,Rough-in,1.15
+WIR-4,Wiring 2.5-4mm2 per conductor,18000,Pulling,1.0
+CBL-LV-185,Feeder cable 4Cx150mm2,420,Pulling,1.0
+TRM-185,Termination 4Cx150mm2,12,Terminations,1.0
+DB-24,Sub DB 24-way,14,Panels,1.0
+MDB-SEC,MDB sections,5,Panels,1.0
+LGT-PNL,LED panel 600x600,620,Second-fix,1.0
+WD,Switches and sockets,780,Second-fix,1.0
+ERT-ROD,Earth rod with pit,6,Earthing,1.0
+TST-CKT,Circuit testing,410,Testing,1.0
