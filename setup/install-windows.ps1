@@ -4,7 +4,7 @@
 
 $ErrorActionPreference = "Stop"
 $RepoUrl   = "https://github.com/herz19/Feedback.git"
-$Branch    = "claude/github-electrical-engineering-qd1l7x"   # change to "master" once merged
+$Branch    = "master"
 $RepoDir   = Join-Path $env:USERPROFILE "Feedback"
 $SkillsDir = Join-Path $env:USERPROFILE ".claude\skills"
 
