@@ -3,6 +3,8 @@
 # and Claude Code itself (if missing). Safe to run again: it updates what is already there.
 
 $ErrorActionPreference = "Stop"
+# Windows PowerShell 5.1 defaults to old TLS; GitHub and claude.ai need TLS 1.2+
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 $RepoUrl   = "https://github.com/herz19/Feedback.git"
 $Branch    = "master"
 $RepoDir   = Join-Path $env:USERPROFILE "Feedback"
@@ -77,7 +79,16 @@ Step "Checking Claude Code"
 if (Have "claude") { Ok "Claude Code found: $(claude --version)" }
 else {
     Warn "Claude Code not found. Installing with the official installer..."
-    Invoke-RestMethod https://claude.ai/install.ps1 | Invoke-Expression
+    try {
+        Invoke-RestMethod https://claude.ai/install.ps1 | Invoke-Expression
+    } catch {
+        Warn "PowerShell download failed ($($_.Exception.Message)). Retrying with curl.exe..."
+        $tmp = Join-Path $env:TEMP "claude-install.cmd"
+        curl.exe -fsSL https://claude.ai/install.cmd -o $tmp
+        if ($LASTEXITCODE -ne 0) { throw "Could not download the Claude Code installer. Check the internet connection or install from https://claude.ai/download" }
+        cmd.exe /c $tmp
+        Remove-Item $tmp -ErrorAction SilentlyContinue
+    }
     Refresh-Path
 }
 
